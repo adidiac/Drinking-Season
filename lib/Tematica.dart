@@ -1,4 +1,7 @@
+import 'package:drinking_season/Cardboard.dart';
 import 'package:flutter/material.dart';
+
+import 'TopContainer.dart';
 
 class Tematica extends StatefulWidget {
   @override
@@ -6,6 +9,27 @@ class Tematica extends StatefulWidget {
 }
 
 class _TematicaState extends State<Tematica> {
+  List<Widget> themes = [
+    CardBoard(
+      image_name: "assets/theme.jpg",
+      name: "Russian",
+      height: 200,
+      width: 200,
+    ),
+    CardBoard(
+      image_name: "assets/theme.jpg",
+      name: "Romanian",
+      height: 200,
+      width: 200,
+    ),
+    CardBoard(
+      image_name: "assets/theme.jpg",
+      name: "Chinesse",
+      height: 200,
+      width: 200,
+    )
+  ];
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -58,34 +82,18 @@ class _TematicaState extends State<Tematica> {
                   fontWeight: FontWeight.bold),
             ),
           ),
-          Container()
+          Container(
+            height: 0.65 * height,
+            width: width,
+            padding: EdgeInsets.symmetric(horizontal: width * 0.1),
+            child: ListView.builder(
+                itemCount: themes.length,
+                itemBuilder: (BuildContext ctxt, int index) {
+                  return themes[index];
+                }),
+          )
         ],
       ),
-    );
-  }
-}
-
-class TopContainer extends StatelessWidget {
-  final double height;
-  final double width;
-  final Widget child;
-  final EdgeInsets padding;
-  TopContainer({this.height, this.width, this.child, this.padding});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding:
-          padding != null ? padding : EdgeInsets.symmetric(horizontal: 10.0),
-      decoration: BoxDecoration(
-          color: Colors.yellow[600],
-          borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(40.0),
-            bottomLeft: Radius.circular(40.0),
-          )),
-      height: height,
-      width: width,
-      child: child,
     );
   }
 }
