@@ -57,7 +57,8 @@ class _TematicaState extends State<Tematica> {
                   fontSize: height * 0.06,
                   fontWeight: FontWeight.bold),
             ),
-          )
+          ),
+          Container()
         ],
       ),
     );
