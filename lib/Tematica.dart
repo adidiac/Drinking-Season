@@ -83,7 +83,7 @@ class _TematicaState extends State<Tematica> {
             ),
           ),
           Container(
-            height: 0.65 * height,
+            height: 0.60 * height,
             width: width,
             padding: EdgeInsets.symmetric(horizontal: width * 0.1),
             child: ListView.builder(
